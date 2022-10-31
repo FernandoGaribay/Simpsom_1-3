@@ -1,5 +1,6 @@
 package domain;
 
+import Simpsom.SimpsomClass;
 import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
@@ -9,7 +10,7 @@ public class SimpsomMenu extends javax.swing.JFrame {
     public SimpsomMenu() {
         initComponents();
         MouseHoverButtons();
-        
+
         this.setSize(615, 590);
         this.setLocation(getLocation().x + 300, getLocation().y);
 
@@ -24,8 +25,8 @@ public class SimpsomMenu extends javax.swing.JFrame {
         scrollTabulacion = new javax.swing.JScrollPane();
         tblTabulacion = new javax.swing.JTable();
         pnlConfiguracion = new javax.swing.JPanel();
-        lblH = new javax.swing.JLabel();
-        txtH = new javax.swing.JTextField();
+        lblN = new javax.swing.JLabel();
+        txtN = new javax.swing.JTextField();
         txtFIX = new javax.swing.JTextField();
         lblFIX = new javax.swing.JLabel();
         btnCalcular = new javax.swing.JPanel();
@@ -33,8 +34,8 @@ public class SimpsomMenu extends javax.swing.JFrame {
         btnGrafica = new javax.swing.JPanel();
         lblGrafica = new javax.swing.JLabel();
         pnlIntegral = new javax.swing.JPanel();
-        lblLimiteB = new javax.swing.JTextField();
-        lblLimiteA = new javax.swing.JTextField();
+        txtLimiteB = new javax.swing.JTextField();
+        txtLimiteA = new javax.swing.JTextField();
         lblIntegral = new javax.swing.JLabel();
         txtIntegral = new javax.swing.JTextField();
         pnlResultado = new javax.swing.JPanel();
@@ -128,13 +129,13 @@ public class SimpsomMenu extends javax.swing.JFrame {
         pnlConfiguracion.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true), "Configuración"));
         pnlConfiguracion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblH.setFont(new java.awt.Font("Century Gothic", 0, 28)); // NOI18N
-        lblH.setText("H   =");
-        pnlConfiguracion.add(lblH, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 25, 70, 30));
+        lblN.setFont(new java.awt.Font("Century Gothic", 0, 28)); // NOI18N
+        lblN.setText("N   =");
+        pnlConfiguracion.add(lblN, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 25, 70, 30));
 
-        txtH.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        txtH.setText("4");
-        pnlConfiguracion.add(txtH, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 25, 80, 30));
+        txtN.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txtN.setText("4");
+        pnlConfiguracion.add(txtN, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 25, 80, 30));
 
         txtFIX.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txtFIX.setText("3");
@@ -145,6 +146,12 @@ public class SimpsomMenu extends javax.swing.JFrame {
         pnlConfiguracion.add(lblFIX, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 65, 70, 30));
 
         jPanel1.add(pnlConfiguracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 180, 110));
+
+        btnCalcular.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnCalcularMousePressed(evt);
+            }
+        });
 
         lblCalcular.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         lblCalcular.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -191,17 +198,17 @@ public class SimpsomMenu extends javax.swing.JFrame {
         pnlIntegral.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)), "Integral", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 0, 12))); // NOI18N
         pnlIntegral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblLimiteB.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        lblLimiteB.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        lblLimiteB.setText("5");
-        lblLimiteB.setBorder(null);
-        pnlIntegral.add(lblLimiteB, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 30, 30));
+        txtLimiteB.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        txtLimiteB.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtLimiteB.setText("5");
+        txtLimiteB.setBorder(null);
+        pnlIntegral.add(txtLimiteB, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 30, 30));
 
-        lblLimiteA.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        lblLimiteA.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        lblLimiteA.setText("5");
-        lblLimiteA.setBorder(null);
-        pnlIntegral.add(lblLimiteA, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 30, 30));
+        txtLimiteA.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        txtLimiteA.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtLimiteA.setText("5");
+        txtLimiteA.setBorder(null);
+        pnlIntegral.add(txtLimiteA, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 30, 30));
 
         lblIntegral.setFont(new java.awt.Font("Century Gothic", 1, 70)); // NOI18N
         lblIntegral.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -772,6 +779,12 @@ public class SimpsomMenu extends javax.swing.JFrame {
 
         jPanel1.add(TABCalculadoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 390, 290));
 
+        btnLimpiar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnLimpiarMousePressed(evt);
+            }
+        });
+
         lblGrafica1.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         lblGrafica1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblGrafica1.setText("Limpiar");
@@ -843,6 +856,23 @@ public class SimpsomMenu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnGraficaMousePressed
 
+    private void btnCalcularMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCalcularMousePressed
+
+        SimpsomClass objSimpsom = new SimpsomClass(
+                Integer.parseInt(this.txtLimiteA.getText()),
+                Integer.parseInt(this.txtLimiteB.getText()),
+                Integer.parseInt(this.txtN.getText()),
+                this.txtIntegral.getText());
+
+        this.btnLimpiar.requestFocus();
+        this.txtResultado.setText(String.valueOf(objSimpsom.calcularAproximacion()));
+    }//GEN-LAST:event_btnCalcularMousePressed
+
+    private void btnLimpiarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMousePressed
+
+        limpiarCampos();
+    }//GEN-LAST:event_btnLimpiarMousePressed
+
     public static void main(String args[]) {
 
         try {
@@ -867,6 +897,14 @@ public class SimpsomMenu extends javax.swing.JFrame {
                 new SimpsomMenu().setVisible(true);
             }
         });
+    }
+    
+    public void limpiarCampos() {
+        this.txtIntegral.setText("");
+        this.txtLimiteA.setText("");
+        this.txtLimiteB.setText("");
+        this.txtN.setText("");
+        this.txtResultado.setText("");
     }
 
     public JPanel[] Botones() {
@@ -925,7 +963,7 @@ public class SimpsomMenu extends javax.swing.JFrame {
 
     private void MouseExited(java.awt.event.MouseEvent evt) {
         JPanel e = (JPanel) evt.getSource();
-        e.setBackground(new Color(240,240,240));
+        e.setBackground(new Color(240, 240, 240));
     }
 
 //    public void MousePressed(java.awt.event.MouseEvent evt) {
@@ -1034,10 +1072,8 @@ public class SimpsomMenu extends javax.swing.JFrame {
     private javax.swing.JLabel lblFIX;
     private javax.swing.JLabel lblGrafica;
     private javax.swing.JLabel lblGrafica1;
-    private javax.swing.JLabel lblH;
     private javax.swing.JLabel lblIntegral;
-    private javax.swing.JTextField lblLimiteA;
-    private javax.swing.JTextField lblLimiteB;
+    private javax.swing.JLabel lblN;
     private javax.swing.JLabel lblResultado;
     private javax.swing.JPanel pnlConfiguracion;
     private javax.swing.JPanel pnlGrafica;
@@ -1048,8 +1084,10 @@ public class SimpsomMenu extends javax.swing.JFrame {
     private javax.swing.JScrollPane scrollTabulacion;
     private javax.swing.JTable tblTabulacion;
     private javax.swing.JTextField txtFIX;
-    private javax.swing.JTextField txtH;
     private javax.swing.JTextField txtIntegral;
+    private javax.swing.JTextField txtLimiteA;
+    private javax.swing.JTextField txtLimiteB;
+    private javax.swing.JTextField txtN;
     private javax.swing.JTextField txtResultado;
     // End of variables declaration//GEN-END:variables
 }
