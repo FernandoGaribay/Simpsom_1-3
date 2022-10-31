@@ -3,13 +3,16 @@ package domain;
 import Simpsom.SimpsomClass;
 import java.awt.Color;
 import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 public class SimpsomMenu extends javax.swing.JFrame {
 
     public SimpsomMenu() {
         initComponents();
         MouseHoverButtons();
+        MousePressedButtons();
 
         this.setSize(615, 590);
         this.setLocation(getLocation().x + 300, getLocation().y);
@@ -200,13 +203,13 @@ public class SimpsomMenu extends javax.swing.JFrame {
 
         txtLimiteB.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         txtLimiteB.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtLimiteB.setText("5");
+        txtLimiteB.setText("2");
         txtLimiteB.setBorder(null);
         pnlIntegral.add(txtLimiteB, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 30, 30));
 
         txtLimiteA.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         txtLimiteA.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtLimiteA.setText("5");
+        txtLimiteA.setText("0");
         txtLimiteA.setBorder(null);
         pnlIntegral.add(txtLimiteA, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 30, 30));
 
@@ -216,7 +219,7 @@ public class SimpsomMenu extends javax.swing.JFrame {
         pnlIntegral.add(lblIntegral, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 25, 20, 70));
 
         txtIntegral.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        txtIntegral.setText("100x√(81-x^3)");
+        txtIntegral.setText("xsqrt(81-x^3)");
         txtIntegral.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         txtIntegral.setBorder(BorderFactory.createCompoundBorder(txtIntegral.getBorder(), BorderFactory.createEmptyBorder(0, 5, 0, 0)));
         pnlIntegral.add(txtIntegral, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 310, 40));
@@ -858,14 +861,19 @@ public class SimpsomMenu extends javax.swing.JFrame {
 
     private void btnCalcularMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCalcularMousePressed
 
-        SimpsomClass objSimpsom = new SimpsomClass(
-                Integer.parseInt(this.txtLimiteA.getText()),
-                Integer.parseInt(this.txtLimiteB.getText()),
-                Integer.parseInt(this.txtN.getText()),
-                this.txtIntegral.getText());
+        try {
+            SimpsomClass objSimpsom = new SimpsomClass(
+                    Integer.parseInt(this.txtLimiteA.getText()),
+                    Integer.parseInt(this.txtLimiteB.getText()),
+                    Integer.parseInt(this.txtN.getText()),
+                    this.txtIntegral.getText());
 
-        this.btnLimpiar.requestFocus();
-        this.txtResultado.setText(String.valueOf(objSimpsom.calcularAproximacion()));
+            this.btnLimpiar.requestFocus();
+            this.txtResultado.setText(String.valueOf(objSimpsom.calcularAproximacion()));
+            this.rellenarTabulacion(objSimpsom);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Verifique la entrada de datos.", "Atención", 2);
+        }
     }//GEN-LAST:event_btnCalcularMousePressed
 
     private void btnLimpiarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMousePressed
@@ -898,13 +906,31 @@ public class SimpsomMenu extends javax.swing.JFrame {
             }
         });
     }
-    
+
+    public void rellenarTabulacion(SimpsomClass objSimpsom) {
+
+        DefaultTableModel model = (DefaultTableModel) tblTabulacion.getModel();
+        model.setRowCount(Integer.parseInt(this.txtN.getText()) + 1);
+        model.setColumnCount(2);
+
+        for (int i = 0; i < Integer.parseInt(this.txtN.getText()) + 1; i++) {
+            tblTabulacion.setValueAt(objSimpsom.getEvaluaciones(i), i, 1);
+            tblTabulacion.setValueAt("F(" + objSimpsom.getIteraciones(i) + ")", i, 0);
+        }
+    }
+
     public void limpiarCampos() {
         this.txtIntegral.setText("");
         this.txtLimiteA.setText("");
         this.txtLimiteB.setText("");
         this.txtN.setText("");
         this.txtResultado.setText("");
+
+        DefaultTableModel model = (DefaultTableModel) tblTabulacion.getModel();
+        model.setRowCount(0);
+        model.setColumnCount(0);
+
+        this.txtIntegral.requestFocus();
     }
 
     public JPanel[] Botones() {
@@ -966,59 +992,23 @@ public class SimpsomMenu extends javax.swing.JFrame {
         e.setBackground(new Color(240, 240, 240));
     }
 
-//    public void MousePressed(java.awt.event.MouseEvent evt) {
-//        PanelRound e = (PanelRound) evt.getSource();
-//        if (e == btn_0) {
-//            txt_Pantalla.setText(txt_Pantalla.getText() + "0");
-//        } else if (e == btn_1) {
-//            txt_Pantalla.setText(txt_Pantalla.getText() + "1");
-//        } else if (e == btn_2) {
-//            txt_Pantalla.setText(txt_Pantalla.getText() + "2");
-//        } else if (e == btn_3) {
-//            txt_Pantalla.setText(txt_Pantalla.getText() + "3");
-//        } else if (e == btn_4) {
-//            txt_Pantalla.setText(txt_Pantalla.getText() + "4");
-//        } else if (e == btn_5) {
-//            txt_Pantalla.setText(txt_Pantalla.getText() + "5");
-//        } else if (e == btn_6) {
-//            txt_Pantalla.setText(txt_Pantalla.getText() + "6");
-//        } else if (e == btn_7) {
-//            txt_Pantalla.setText(txt_Pantalla.getText() + "7");
-//        } else if (e == btn_8) {
-//            txt_Pantalla.setText(txt_Pantalla.getText() + "8");
-//        } else if (e == btn_9) {
-//            txt_Pantalla.setText(txt_Pantalla.getText() + "9");
-//        } else if (e == btn_Parentesis1) {
-//            txt_Pantalla.setText(txt_Pantalla.getText() + "(");
-//        } else if (e == btn_Parentesis2) {
-//            txt_Pantalla.setText(txt_Pantalla.getText() + ")");
-//        } else if (e == btn_Punto) {
-//            txt_Pantalla.setText(txt_Pantalla.getText() + ".");
-//        } else if (e == btn_Porcentaje) {
-//            txt_Pantalla.setText(txt_Pantalla.getText() + "%");
-//        } else if (e == btn_Ans) {
-//            txt_Pantalla.setText(txt_Pantalla.getText() + txt_Resultado.getText());
-//        } else if (e == btn_Dividir) {
-//            txt_Pantalla.setText(txt_Pantalla.getText() + "/");
-//        } else if (e == btn_Multiplicar) {
-//            txt_Pantalla.setText(txt_Pantalla.getText() + "*");
-//        } else if (e == btn_Resta) {
-//            txt_Pantalla.setText(txt_Pantalla.getText() + "-");
-//        } else if (e == btn_Suma) {
-//            txt_Pantalla.setText(txt_Pantalla.getText() + "+");
-//        } else if (e == btn_PI) {
-//            txt_Pantalla.setText(txt_Pantalla.getText() + "π");
-//        } else if (e == btn_Raiz) {
-//            txt_Pantalla.setText(txt_Pantalla.getText() + "sqrt()");
-//        } else if (e == btn_Cuadrado) {
-//            txt_Pantalla.setText(txt_Pantalla.getText() + "()^2");
-//        } else if (e == btn_Backspace) {
-//            if (!txt_Pantalla.getText().isEmpty()) {
-//                txt_Pantalla.setText(txt_Pantalla.getText().substring(0, txt_Pantalla.getText().length() - 1));
-//            }
-//        }
-//
-//    }
+    public void MousePressedButtons() {
+        for (JPanel Boton : Botones()) {
+            Boton.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
+                public void mousePressed(java.awt.event.MouseEvent evt) {
+                    MousePressed(evt);
+                }
+            });
+        }
+    }
+
+    public void MousePressed(java.awt.event.MouseEvent evt) {
+        JPanel e = (JPanel) evt.getSource();
+        if (e == btn_0) {
+            txtIntegral.setText(txtIntegral.getText() + "0");
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane TABCalculadoras;
