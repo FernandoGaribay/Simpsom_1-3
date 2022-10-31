@@ -69,6 +69,7 @@ public class SimpsomClass {
         return resultado = resultado*(this.getH()/3);
     }
 
+    
     public int getA() {
         return a;
     }
@@ -112,9 +113,42 @@ public class SimpsomClass {
     public double[] getIteraciones() {
         return iteraciones;
     }
+    
+    public double getIteraciones(int i){
+        return iteraciones[i];
+    }
 
     public void setIteraciones(double[] iteraciones) {
         this.iteraciones = iteraciones;
     }
+
+    public double[] getEvaluaciones() {
+        return evaluaciones;
+    }
+
+    public double getEvaluaciones(int i){
+        return evaluaciones[i];
+    }
+    
+    public void setEvaluaciones(double[] evaluaciones) {
+        this.evaluaciones = evaluaciones;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("SimpsomClass{");
+        sb.append("a=").append(a);
+        sb.append(", b=").append(b);
+        sb.append(", n=").append(n);
+        sb.append(", h=").append(h);
+        sb.append(", integral=").append(integral);
+        sb.append(", iteraciones=").append(iteraciones);
+        sb.append(", evaluaciones=").append(evaluaciones);
+        sb.append('}');
+        return sb.toString();
+    }
+
+    
 
 }
