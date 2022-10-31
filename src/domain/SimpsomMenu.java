@@ -1007,6 +1007,26 @@ public class SimpsomMenu extends javax.swing.JFrame {
         JPanel e = (JPanel) evt.getSource();
         if (e == btn_0) {
             txtIntegral.setText(txtIntegral.getText() + "0");
+        } else if (e == btn_1) {
+            txtIntegral.setText(txtIntegral.getText() + "1");
+        } else if (e == btn_2) {
+            txtIntegral.setText(txtIntegral.getText() + "2");
+        } else if (e == btn_3) {
+            txtIntegral.setText(txtIntegral.getText() + "3");
+        } else if (e == btn_4) {
+            txtIntegral.setText(txtIntegral.getText() + "4");
+        } else if (e == btn_5) {
+            txtIntegral.setText(txtIntegral.getText() + "5");
+        } else if (e == btn_6) {
+            txtIntegral.setText(txtIntegral.getText() + "6");
+        } else if (e == btn_7) {
+            txtIntegral.setText(txtIntegral.getText() + "7");
+        } else if (e == btn_8) {
+            txtIntegral.setText(txtIntegral.getText() + "8");
+        } else if (e == btn_9) {
+            txtIntegral.setText(txtIntegral.getText() + "9");
+        } else if (e == btn_x) {
+            txtIntegral.setText(txtIntegral.getText() + "x");
         }
     }
 
