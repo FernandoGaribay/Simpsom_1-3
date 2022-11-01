@@ -1,12 +1,15 @@
 package domain;
 
+import Grafica.GraficaClass;
 import Simpsom.SimpsomClass;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.text.DecimalFormat;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import org.math.plot.Plot2DPanel;
 
 public class SimpsomMenu extends javax.swing.JFrame {
 
@@ -17,15 +20,24 @@ public class SimpsomMenu extends javax.swing.JFrame {
 
         this.setSize(615, 590);
         this.setLocation(getLocation().x + 300, getLocation().y);
-
     }
+
+    Thread carga = new Thread() {
+        public void run() {
+            try {
+                pnlSimpsom.setCursor(new Cursor(Cursor.WAIT_CURSOR));
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+    };
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jPanel1 = new javax.swing.JPanel();
+        pnlSimpsom = new javax.swing.JPanel();
         scrollTabulacion = new javax.swing.JScrollPane();
         tblTabulacion = new javax.swing.JTable();
         pnlConfiguracion = new javax.swing.JPanel();
@@ -93,17 +105,18 @@ public class SimpsomMenu extends javax.swing.JFrame {
         btnLimpiar = new javax.swing.JPanel();
         lblGrafica1 = new javax.swing.JLabel();
         pnlGrafica = new javax.swing.JPanel();
+        grafica = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Método de Simsom 1/3");
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setMinimumSize(new java.awt.Dimension(900, 550));
-        jPanel1.setName(""); // NOI18N
-        jPanel1.setPreferredSize(new java.awt.Dimension(900, 550));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pnlSimpsom.setBackground(new java.awt.Color(255, 255, 255));
+        pnlSimpsom.setMinimumSize(new java.awt.Dimension(900, 550));
+        pnlSimpsom.setName(""); // NOI18N
+        pnlSimpsom.setPreferredSize(new java.awt.Dimension(900, 550));
+        pnlSimpsom.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         scrollTabulacion.setBorder(null);
 
@@ -127,7 +140,7 @@ public class SimpsomMenu extends javax.swing.JFrame {
         tblTabulacion.setShowHorizontalLines(true);
         scrollTabulacion.setViewportView(tblTabulacion);
 
-        jPanel1.add(scrollTabulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(389, 190, 199, 345));
+        pnlSimpsom.add(scrollTabulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(389, 190, 199, 345));
 
         pnlConfiguracion.setBackground(new java.awt.Color(255, 255, 255));
         pnlConfiguracion.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true), "Configuración"));
@@ -149,7 +162,7 @@ public class SimpsomMenu extends javax.swing.JFrame {
         lblFIX.setText("FIX =");
         pnlConfiguracion.add(lblFIX, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 65, 70, 30));
 
-        jPanel1.add(pnlConfiguracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 10, 203, 110));
+        pnlSimpsom.add(pnlConfiguracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 10, 203, 110));
 
         btnCalcular.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -172,7 +185,7 @@ public class SimpsomMenu extends javax.swing.JFrame {
             .addComponent(lblCalcular, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
         );
 
-        jPanel1.add(btnCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 130, -1));
+        pnlSimpsom.add(btnCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 490, 130, -1));
 
         btnGrafica.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGrafica.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -196,7 +209,7 @@ public class SimpsomMenu extends javax.swing.JFrame {
             .addComponent(lblGrafica, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
         );
 
-        jPanel1.add(btnGrafica, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 490, 70, -1));
+        pnlSimpsom.add(btnGrafica, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 490, 70, -1));
 
         pnlIntegral.setBackground(new java.awt.Color(255, 255, 255));
         pnlIntegral.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)), "Integral", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 0, 12))); // NOI18N
@@ -225,7 +238,7 @@ public class SimpsomMenu extends javax.swing.JFrame {
         txtIntegral.setBorder(BorderFactory.createCompoundBorder(txtIntegral.getBorder(), BorderFactory.createEmptyBorder(0, 5, 0, 0)));
         pnlIntegral.add(txtIntegral, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 290, 40));
 
-        jPanel1.add(pnlIntegral, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 372, 110));
+        pnlSimpsom.add(pnlIntegral, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 372, 110));
 
         pnlResultado.setBackground(new java.awt.Color(255, 255, 255));
         pnlResultado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -239,7 +252,7 @@ public class SimpsomMenu extends javax.swing.JFrame {
         lblResultado.setText("Resultado  ≈");
         pnlResultado.add(lblResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 40));
 
-        jPanel1.add(pnlResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 580, 40));
+        pnlSimpsom.add(pnlResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 580, 40));
 
         TABCalculadoras.setBackground(new java.awt.Color(255, 255, 255));
         TABCalculadoras.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -784,7 +797,7 @@ public class SimpsomMenu extends javax.swing.JFrame {
 
         TABCalculadoras.addTab("Operadores", pnlOperadores);
 
-        jPanel1.add(TABCalculadoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 370, 290));
+        pnlSimpsom.add(TABCalculadoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 370, 290));
 
         btnLimpiar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -807,23 +820,28 @@ public class SimpsomMenu extends javax.swing.JFrame {
             .addComponent(lblGrafica1, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
         );
 
-        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 490, 130, -1));
+        pnlSimpsom.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 490, 130, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, -1));
+        getContentPane().add(pnlSimpsom, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, -1));
 
         pnlGrafica.setBackground(new java.awt.Color(255, 204, 204));
         pnlGrafica.setPreferredSize(new java.awt.Dimension(900, 550));
+        pnlGrafica.setLayout(new java.awt.BorderLayout());
 
-        javax.swing.GroupLayout pnlGraficaLayout = new javax.swing.GroupLayout(pnlGrafica);
-        pnlGrafica.setLayout(pnlGraficaLayout);
-        pnlGraficaLayout.setHorizontalGroup(
-            pnlGraficaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        grafica.setPreferredSize(new java.awt.Dimension(500, 500));
+
+        javax.swing.GroupLayout graficaLayout = new javax.swing.GroupLayout(grafica);
+        grafica.setLayout(graficaLayout);
+        graficaLayout.setHorizontalGroup(
+            graficaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 600, Short.MAX_VALUE)
         );
-        pnlGraficaLayout.setVerticalGroup(
-            pnlGraficaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        graficaLayout.setVerticalGroup(
+            graficaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 550, Short.MAX_VALUE)
         );
+
+        pnlGrafica.add(grafica, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(pnlGrafica, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 600, -1));
 
@@ -864,6 +882,7 @@ public class SimpsomMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGraficaMousePressed
 
     private void btnCalcularMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCalcularMousePressed
+        Plot2DPanel grafica2D;
 
         try {
             SimpsomClass objSimpsom = new SimpsomClass(
@@ -877,6 +896,16 @@ public class SimpsomMenu extends javax.swing.JFrame {
             this.rellenarTabulacion(objSimpsom);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Verifique la entrada de datos.", "Atención", 2);
+        }
+
+        try {
+            grafica2D = new GraficaClass(Double.parseDouble(txtLimiteA.getText()), Double.parseDouble(txtLimiteB.getText()), txtIntegral.getText()).grafico();
+            grafica2D.setBounds(1, 1, 600, 550);
+            grafica.add(grafica2D);
+            grafica.updateUI();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ha ocurrido un error en la graficacion de la funcion.", "Error", 3);
+            System.out.println(e);
         }
     }//GEN-LAST:event_btnCalcularMousePressed
 
@@ -932,7 +961,7 @@ public class SimpsomMenu extends javax.swing.JFrame {
         for (int i = 0; i < Integer.parseInt(this.txtFIX.getText()); i++) {
             formato = formato + "0";
         }
-         
+
         return formato;
     }
 
@@ -1073,6 +1102,7 @@ public class SimpsomMenu extends javax.swing.JFrame {
     private javax.swing.JPanel btn_Restar;
     private javax.swing.JPanel btn_Suma;
     private javax.swing.JPanel btn_x;
+    private javax.swing.JPanel grafica;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1094,7 +1124,6 @@ public class SimpsomMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCalcular;
     private javax.swing.JLabel lblFIX;
     private javax.swing.JLabel lblGrafica;
@@ -1108,6 +1137,7 @@ public class SimpsomMenu extends javax.swing.JFrame {
     private javax.swing.JPanel pnlNumeros;
     private javax.swing.JPanel pnlOperadores;
     private javax.swing.JPanel pnlResultado;
+    private javax.swing.JPanel pnlSimpsom;
     private javax.swing.JScrollPane scrollTabulacion;
     private javax.swing.JTable tblTabulacion;
     private javax.swing.JTextField txtFIX;
