@@ -3,11 +3,11 @@ package domain;
 import Grafica.GraficaClass;
 import Simpsom.SimpsomClass;
 import java.awt.Color;
-import java.awt.Cursor;
 import java.text.DecimalFormat;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import org.math.plot.Plot2DPanel;
 
@@ -17,6 +17,7 @@ public class SimpsomMenu extends javax.swing.JFrame {
         initComponents();
         MouseHoverButtons();
         MousePressedButtons();
+        JTextFieldOnlyNumbers();
 
         this.setSize(615, 590);
         this.setLocation(getLocation().x + 300, getLocation().y);
@@ -100,7 +101,7 @@ public class SimpsomMenu extends javax.swing.JFrame {
         btnGrafica = new javax.swing.JPanel();
         lblGrafica = new javax.swing.JLabel();
         btnAcercaDe = new javax.swing.JPanel();
-        lblAcercaDe = new javax.swing.JLabel();
+        lblInfo = new javax.swing.JLabel();
         pnlGrafica = new javax.swing.JPanel();
         grafica = new javax.swing.JPanel();
 
@@ -193,6 +194,8 @@ public class SimpsomMenu extends javax.swing.JFrame {
         pnlResultado.setBackground(new java.awt.Color(255, 255, 255));
         pnlResultado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtResultado.setEditable(false);
+        txtResultado.setBackground(new java.awt.Color(255, 255, 255));
         txtResultado.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         txtResultado.setText("0.14156482");
         txtResultado.setBorder(BorderFactory.createCompoundBorder(txtResultado.getBorder(), BorderFactory.createEmptyBorder(0, 5, 0, 0)));
@@ -812,11 +815,10 @@ public class SimpsomMenu extends javax.swing.JFrame {
         });
         btnAcercaDe.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblAcercaDe.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
-        lblAcercaDe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAcercaDe.setText("Acerca");
-        lblAcercaDe.setPreferredSize(new java.awt.Dimension(85, 55));
-        btnAcercaDe.add(lblAcercaDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 85, 40));
+        lblInfo.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
+        lblInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblInfo.setText("Info.");
+        btnAcercaDe.add(lblInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 85, 40));
 
         pnlBotones.add(btnAcercaDe);
 
@@ -850,11 +852,15 @@ public class SimpsomMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAcercaDeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAcercaDeMousePressed
-        // TODO add your handling code here:
+
+        JOptionPane.showMessageDialog(this, "Materia: Métodos Numéricos."
+                + "\n"
+                + "\nIntegrantes:"
+                + "\nFernando Garibay Ceja - 21310414"
+                + "\nAlexa Rebeca Santa Cruz Hurtado - 21310419", "Información del programa", 1);
     }//GEN-LAST:event_btnAcercaDeMousePressed
 
     private void btnGraficaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGraficaMousePressed
-        System.out.println(getSize());
         if (getWidth() == 1216) {
             this.setSize(615, 590);
             this.setLocation(getLocation().x + 300, getLocation().y);
@@ -862,26 +868,6 @@ public class SimpsomMenu extends javax.swing.JFrame {
             this.setSize(1216, 590);
             this.setLocation(getLocation().x - 300, getLocation().y);
         }
-        //        Thread one = new Thread() {
-        //            public void run() {
-        //                try {
-        //                    for (int i = 0; i < 100; i++) {
-        //                        if (getWidth() == 1216) {
-        //                            setSize(615, 590);
-        //                            setLocation(getLocation().x + 300, getLocation().y);
-        //                        } else {
-        //                            setSize(1216, 590);
-        //                            setLocation(getLocation().x - 300, getLocation().y);
-        //                        }
-        //                        Thread.sleep(1000);
-        //                        System.out.println(i);
-        //                    }
-        //                } catch (Exception e) {
-        //                    System.out.println(e);
-        //                }
-        //            }
-        //        };
-        //        one.start();
     }//GEN-LAST:event_btnGraficaMousePressed
 
     private void btnLimpiarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMousePressed
@@ -893,23 +879,26 @@ public class SimpsomMenu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El Limite A debe der mayor que el Limite B.", "Atención", 2);
             return;
         }
+        if (!(txtLimiteA.getText().isEmpty()
+                || txtLimiteB.getText().isEmpty()
+                || txtIntegral.getText().isEmpty()
+                || txtN.getText().isEmpty()
+                || txtFIX.getText().isEmpty())) {
+            JOptionPane.showMessageDialog(this, "Verifique la entrada de datos.", "Atención", 2);
+        }
         if (!(Integer.parseInt(txtN.getText()) % 2 == 0)) {
             JOptionPane.showMessageDialog(this, "El valor de N debe ser un número par.", "Atención", 2);
             return;
         }
 
-        try {
-            SimpsomClass objSimpsom = new SimpsomClass(
-                    Integer.parseInt(this.txtLimiteA.getText()),
-                    Integer.parseInt(this.txtLimiteB.getText()),
-                    Integer.parseInt(this.txtN.getText()),
-                    this.txtIntegral.getText());
-            this.calcularAproximacion(objSimpsom);
-            this.calcularTabulacion(objSimpsom);
-            this.graficarIntegral();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Verifique la entrada de datos.", "Atención", 2);
-        }
+        SimpsomClass objSimpsom = new SimpsomClass(
+                Integer.parseInt(this.txtLimiteA.getText()),
+                Integer.parseInt(this.txtLimiteB.getText()),
+                Integer.parseInt(this.txtN.getText()),
+                this.txtIntegral.getText());
+        this.calcularAproximacion(objSimpsom);
+        this.calcularTabulacion(objSimpsom);
+        this.graficarIntegral();
     }//GEN-LAST:event_btnCalcularMousePressed
 
     public void calcularAproximacion(SimpsomClass objSimpsom) {
@@ -1115,6 +1104,36 @@ public class SimpsomMenu extends javax.swing.JFrame {
         }
     }
 
+    public JTextField[] cajasTexto() {
+        JTextField elementsArray[] = {
+            txtLimiteA,
+            txtLimiteB,
+            txtN,
+            txtFIX,};
+        return elementsArray;
+    }
+
+    public void JTextFieldOnlyNumbers() {
+        for (JTextField jTextField : cajasTexto()) {
+            jTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+                @Override
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    KeyPressed(evt);
+                }
+            });
+        }
+    }
+
+    private void KeyPressed(java.awt.event.KeyEvent evt) {
+        int key = evt.getKeyChar();
+        boolean numeros = key >= 48 && key <= 57;
+
+        if (!numeros) {
+            evt.consume();
+        }
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane TABCalculadoras;
     private javax.swing.JPanel btnAcercaDe;
@@ -1154,13 +1173,13 @@ public class SimpsomMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel lblAcercaDe;
     private javax.swing.JLabel lblBack;
     private javax.swing.JLabel lblDividir;
     private javax.swing.JLabel lblFIX;
     private javax.swing.JLabel lblGrafica;
     private javax.swing.JLabel lblGrafica1;
     private javax.swing.JLabel lblGrafica2;
+    private javax.swing.JLabel lblInfo;
     private javax.swing.JLabel lblIntegral;
     private javax.swing.JLabel lblMultiplicar;
     private javax.swing.JLabel lblN;
