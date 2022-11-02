@@ -69,25 +69,25 @@ public class SimpsomMenu extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         pnlOperadores = new javax.swing.JPanel();
         btn_Potentencia = new javax.swing.JPanel();
-        jLabel21 = new javax.swing.JLabel();
+        lblPotencia = new javax.swing.JLabel();
         btn_Raiz = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
+        lblRaiz = new javax.swing.JLabel();
         btn_Punto = new javax.swing.JPanel();
-        jLabel23 = new javax.swing.JLabel();
+        lblPunto = new javax.swing.JLabel();
         btn_Parentesis1 = new javax.swing.JPanel();
-        jLabel24 = new javax.swing.JLabel();
+        lblParentesis1 = new javax.swing.JLabel();
         btn_Dividir = new javax.swing.JPanel();
-        jLabel25 = new javax.swing.JLabel();
+        lblDividir = new javax.swing.JLabel();
         btn_Multiplicar = new javax.swing.JPanel();
-        jLabel26 = new javax.swing.JLabel();
+        lblMultiplicar = new javax.swing.JLabel();
         btn_Restar = new javax.swing.JPanel();
-        jLabel27 = new javax.swing.JLabel();
+        lblRestar = new javax.swing.JLabel();
         btn_Suma = new javax.swing.JPanel();
-        jLabel28 = new javax.swing.JLabel();
+        lblSumar = new javax.swing.JLabel();
         btn_Parentesis2 = new javax.swing.JPanel();
-        jLabel30 = new javax.swing.JLabel();
+        lblParentesis2 = new javax.swing.JLabel();
         btn_Back = new javax.swing.JPanel();
-        jLabel29 = new javax.swing.JLabel();
+        lblBack = new javax.swing.JLabel();
         pnlBotones = new javax.swing.JPanel();
         btnCalcular = new javax.swing.JPanel();
         lblGrafica2 = new javax.swing.JLabel();
@@ -489,19 +489,19 @@ public class SimpsomMenu extends javax.swing.JFrame {
 
         btn_Potentencia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabel21.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel21.setText("^");
+        lblPotencia.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        lblPotencia.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPotencia.setText("^");
 
         javax.swing.GroupLayout btn_PotentenciaLayout = new javax.swing.GroupLayout(btn_Potentencia);
         btn_Potentencia.setLayout(btn_PotentenciaLayout);
         btn_PotentenciaLayout.setHorizontalGroup(
             btn_PotentenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblPotencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         btn_PotentenciaLayout.setVerticalGroup(
             btn_PotentenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblPotencia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -514,19 +514,19 @@ public class SimpsomMenu extends javax.swing.JFrame {
 
         btn_Raiz.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabel22.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setText("√");
+        lblRaiz.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        lblRaiz.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblRaiz.setText("√");
 
         javax.swing.GroupLayout btn_RaizLayout = new javax.swing.GroupLayout(btn_Raiz);
         btn_Raiz.setLayout(btn_RaizLayout);
         btn_RaizLayout.setHorizontalGroup(
             btn_RaizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblRaiz, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         btn_RaizLayout.setVerticalGroup(
             btn_RaizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblRaiz, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -540,19 +540,19 @@ public class SimpsomMenu extends javax.swing.JFrame {
         btn_Punto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Punto.setPreferredSize(new java.awt.Dimension(16, 31));
 
-        jLabel23.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setText(".");
+        lblPunto.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        lblPunto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPunto.setText(".");
 
         javax.swing.GroupLayout btn_PuntoLayout = new javax.swing.GroupLayout(btn_Punto);
         btn_Punto.setLayout(btn_PuntoLayout);
         btn_PuntoLayout.setHorizontalGroup(
             btn_PuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblPunto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         btn_PuntoLayout.setVerticalGroup(
             btn_PuntoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblPunto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -565,19 +565,19 @@ public class SimpsomMenu extends javax.swing.JFrame {
 
         btn_Parentesis1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabel24.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel24.setText("(");
+        lblParentesis1.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        lblParentesis1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblParentesis1.setText("(");
 
         javax.swing.GroupLayout btn_Parentesis1Layout = new javax.swing.GroupLayout(btn_Parentesis1);
         btn_Parentesis1.setLayout(btn_Parentesis1Layout);
         btn_Parentesis1Layout.setHorizontalGroup(
             btn_Parentesis1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblParentesis1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         btn_Parentesis1Layout.setVerticalGroup(
             btn_Parentesis1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblParentesis1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -591,19 +591,19 @@ public class SimpsomMenu extends javax.swing.JFrame {
         btn_Dividir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Dividir.setPreferredSize(new java.awt.Dimension(16, 31));
 
-        jLabel25.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel25.setText("/");
+        lblDividir.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        lblDividir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDividir.setText("/");
 
         javax.swing.GroupLayout btn_DividirLayout = new javax.swing.GroupLayout(btn_Dividir);
         btn_Dividir.setLayout(btn_DividirLayout);
         btn_DividirLayout.setHorizontalGroup(
             btn_DividirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblDividir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         btn_DividirLayout.setVerticalGroup(
             btn_DividirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblDividir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -616,19 +616,19 @@ public class SimpsomMenu extends javax.swing.JFrame {
 
         btn_Multiplicar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabel26.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel26.setText("*");
+        lblMultiplicar.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        lblMultiplicar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMultiplicar.setText("*");
 
         javax.swing.GroupLayout btn_MultiplicarLayout = new javax.swing.GroupLayout(btn_Multiplicar);
         btn_Multiplicar.setLayout(btn_MultiplicarLayout);
         btn_MultiplicarLayout.setHorizontalGroup(
             btn_MultiplicarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblMultiplicar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         btn_MultiplicarLayout.setVerticalGroup(
             btn_MultiplicarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblMultiplicar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -642,19 +642,19 @@ public class SimpsomMenu extends javax.swing.JFrame {
         btn_Restar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Restar.setPreferredSize(new java.awt.Dimension(16, 31));
 
-        jLabel27.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel27.setText("-");
+        lblRestar.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        lblRestar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblRestar.setText("-");
 
         javax.swing.GroupLayout btn_RestarLayout = new javax.swing.GroupLayout(btn_Restar);
         btn_Restar.setLayout(btn_RestarLayout);
         btn_RestarLayout.setHorizontalGroup(
             btn_RestarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblRestar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         btn_RestarLayout.setVerticalGroup(
             btn_RestarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblRestar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -667,19 +667,19 @@ public class SimpsomMenu extends javax.swing.JFrame {
 
         btn_Suma.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabel28.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel28.setText("+");
+        lblSumar.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        lblSumar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSumar.setText("+");
 
         javax.swing.GroupLayout btn_SumaLayout = new javax.swing.GroupLayout(btn_Suma);
         btn_Suma.setLayout(btn_SumaLayout);
         btn_SumaLayout.setHorizontalGroup(
             btn_SumaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblSumar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         btn_SumaLayout.setVerticalGroup(
             btn_SumaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel28, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblSumar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -692,19 +692,19 @@ public class SimpsomMenu extends javax.swing.JFrame {
 
         btn_Parentesis2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabel30.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel30.setText(")");
+        lblParentesis2.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        lblParentesis2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblParentesis2.setText(")");
 
         javax.swing.GroupLayout btn_Parentesis2Layout = new javax.swing.GroupLayout(btn_Parentesis2);
         btn_Parentesis2.setLayout(btn_Parentesis2Layout);
         btn_Parentesis2Layout.setHorizontalGroup(
             btn_Parentesis2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblParentesis2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         btn_Parentesis2Layout.setVerticalGroup(
             btn_Parentesis2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel30, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblParentesis2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -717,19 +717,19 @@ public class SimpsomMenu extends javax.swing.JFrame {
 
         btn_Back.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabel29.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel29.setText("←");
+        lblBack.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        lblBack.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBack.setText("←");
 
         javax.swing.GroupLayout btn_BackLayout = new javax.swing.GroupLayout(btn_Back);
         btn_Back.setLayout(btn_BackLayout);
         btn_BackLayout.setHorizontalGroup(
             btn_BackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         btn_BackLayout.setVerticalGroup(
             btn_BackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel29, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblBack, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -859,24 +859,24 @@ public class SimpsomMenu extends javax.swing.JFrame {
             this.setLocation(getLocation().x - 300, getLocation().y);
         }
         //        Thread one = new Thread() {
-            //            public void run() {
-                //                try {
-                    //                    for (int i = 0; i < 100; i++) {
-                        //                        if (getWidth() == 1216) {
-                            //                            setSize(615, 590);
-                            //                            setLocation(getLocation().x + 300, getLocation().y);
-                            //                        } else {
-                            //                            setSize(1216, 590);
-                            //                            setLocation(getLocation().x - 300, getLocation().y);
-                            //                        }
-                        //                        Thread.sleep(1000);
-                        //                        System.out.println(i);
-                        //                    }
-                    //                } catch (Exception e) {
-                    //                    System.out.println(e);
-                    //                }
-                //            }
-            //        };
+        //            public void run() {
+        //                try {
+        //                    for (int i = 0; i < 100; i++) {
+        //                        if (getWidth() == 1216) {
+        //                            setSize(615, 590);
+        //                            setLocation(getLocation().x + 300, getLocation().y);
+        //                        } else {
+        //                            setSize(1216, 590);
+        //                            setLocation(getLocation().x - 300, getLocation().y);
+        //                        }
+        //                        Thread.sleep(1000);
+        //                        System.out.println(i);
+        //                    }
+        //                } catch (Exception e) {
+        //                    System.out.println(e);
+        //                }
+        //            }
+        //        };
         //        one.start();
     }//GEN-LAST:event_btnGraficaMousePressed
 
@@ -885,12 +885,21 @@ public class SimpsomMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimpiarMousePressed
 
     private void btnCalcularMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCalcularMousePressed
+        if (!(Integer.parseInt(txtLimiteA.getText()) < Integer.parseInt(txtLimiteB.getText()))) {
+            JOptionPane.showMessageDialog(this, "El Limite A debe der mayor que el Limite B.", "Atención", 2);
+            return;
+        }
+        if (!(Integer.parseInt(txtN.getText()) % 2 == 0)) {
+            JOptionPane.showMessageDialog(this, "El valor de N debe ser un número par.", "Atención", 2);
+            return;
+        }
+
         try {
             SimpsomClass objSimpsom = new SimpsomClass(
-                Integer.parseInt(this.txtLimiteA.getText()),
-                Integer.parseInt(this.txtLimiteB.getText()),
-                Integer.parseInt(this.txtN.getText()),
-                this.txtIntegral.getText());
+                    Integer.parseInt(this.txtLimiteA.getText()),
+                    Integer.parseInt(this.txtLimiteB.getText()),
+                    Integer.parseInt(this.txtN.getText()),
+                    this.txtIntegral.getText());
             this.calcularAproximacion(objSimpsom);
             this.calcularTabulacion(objSimpsom);
             this.graficarIntegral();
@@ -1054,7 +1063,7 @@ public class SimpsomMenu extends javax.swing.JFrame {
     }
 
     public void MousePressed(java.awt.event.MouseEvent evt) {
-        JPanel e = (JPanel) evt.getSource();
+        JPanel e = (JPanel) evt.getSource();       
         if (e == btn_0) {
             txtIntegral.setText(txtIntegral.getText() + "0");
         } else if (e == btn_1) {
@@ -1077,6 +1086,28 @@ public class SimpsomMenu extends javax.swing.JFrame {
             txtIntegral.setText(txtIntegral.getText() + "9");
         } else if (e == btn_x) {
             txtIntegral.setText(txtIntegral.getText() + "x");
+        } else if (e == btn_Potentencia) {
+            txtIntegral.setText(txtIntegral.getText() + "^");
+        } else if (e == btn_Raiz) {
+            txtIntegral.setText(txtIntegral.getText() + "sqrt()");
+        } else if (e == btn_Punto) {
+            txtIntegral.setText(txtIntegral.getText() + ".");
+        } else if (e == btn_Parentesis1) {
+            txtIntegral.setText(txtIntegral.getText() + "(");
+        } else if (e == btn_Parentesis2) {
+            txtIntegral.setText(txtIntegral.getText() + ")");
+        } else if (e == btn_Dividir) {
+            txtIntegral.setText(txtIntegral.getText() + "/");
+        } else if (e == btn_Multiplicar) {
+            txtIntegral.setText(txtIntegral.getText() + "*");
+        } else if (e == btn_Suma) {
+            txtIntegral.setText(txtIntegral.getText() + "+");
+        } else if (e == btn_Restar) {
+            txtIntegral.setText(txtIntegral.getText() + "-");
+        } else if (e == btn_Back) {
+            if (!txtIntegral.getText().isEmpty()) {
+                txtIntegral.setText(txtIntegral.getText().substring(0, txtIntegral.getText().length() - 1));
+            }
         }
     }
 
@@ -1118,25 +1149,25 @@ public class SimpsomMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lblAcercaDe;
+    private javax.swing.JLabel lblBack;
+    private javax.swing.JLabel lblDividir;
     private javax.swing.JLabel lblFIX;
     private javax.swing.JLabel lblGrafica;
     private javax.swing.JLabel lblGrafica1;
     private javax.swing.JLabel lblGrafica2;
     private javax.swing.JLabel lblIntegral;
+    private javax.swing.JLabel lblMultiplicar;
     private javax.swing.JLabel lblN;
+    private javax.swing.JLabel lblParentesis1;
+    private javax.swing.JLabel lblParentesis2;
+    private javax.swing.JLabel lblPotencia;
+    private javax.swing.JLabel lblPunto;
+    private javax.swing.JLabel lblRaiz;
+    private javax.swing.JLabel lblRestar;
     private javax.swing.JLabel lblResultado;
+    private javax.swing.JLabel lblSumar;
     private javax.swing.JPanel pnlBotones;
     private javax.swing.JPanel pnlConfiguracion;
     private javax.swing.JPanel pnlGrafica;
