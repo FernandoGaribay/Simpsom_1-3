@@ -22,16 +22,6 @@ public class SimpsomMenu extends javax.swing.JFrame {
         this.setLocation(getLocation().x + 300, getLocation().y);
     }
 
-    Thread carga = new Thread() {
-        public void run() {
-            try {
-                pnlSimpsom.setCursor(new Cursor(Cursor.WAIT_CURSOR));
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-        }
-    };
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -882,22 +872,51 @@ public class SimpsomMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGraficaMousePressed
 
     private void btnCalcularMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCalcularMousePressed
-        Plot2DPanel grafica2D;
-
         try {
             SimpsomClass objSimpsom = new SimpsomClass(
                     Integer.parseInt(this.txtLimiteA.getText()),
                     Integer.parseInt(this.txtLimiteB.getText()),
                     Integer.parseInt(this.txtN.getText()),
                     this.txtIntegral.getText());
-
-            this.btnLimpiar.requestFocus();
-            this.txtResultado.setText(String.valueOf(new DecimalFormat(this.evaluarFormato()).format(objSimpsom.calcularAproximacion())));
-            this.rellenarTabulacion(objSimpsom);
+            this.calcularAproximacion(objSimpsom);
+            this.calcularTabulacion(objSimpsom);
+            this.graficarIntegral();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Verifique la entrada de datos.", "Atención", 2);
         }
+    }//GEN-LAST:event_btnCalcularMousePressed
 
+    public void calcularAproximacion(SimpsomClass objSimpsom) {
+        this.txtResultado.setText(String.valueOf(new DecimalFormat(this.evaluarFormato()).format(objSimpsom.calcularAproximacion())));
+        this.btnLimpiar.requestFocus();
+    }
+
+    public void calcularTabulacion(SimpsomClass objSimpsom) {
+        DecimalFormat dfIteraciones = new DecimalFormat("#.##");
+        DecimalFormat dfEvaluaciones = new DecimalFormat(this.evaluarFormato());
+
+        DefaultTableModel model = (DefaultTableModel) tblTabulacion.getModel();
+        model.setRowCount(Integer.parseInt(this.txtN.getText()) + 1);
+        model.setColumnCount(2);
+
+        for (int i = 0; i < Integer.parseInt(this.txtN.getText()) + 1; i++) {
+            tblTabulacion.setValueAt(dfEvaluaciones.format(objSimpsom.getEvaluaciones(i)), i, 1);
+            tblTabulacion.setValueAt("F(" + dfIteraciones.format(objSimpsom.getIteraciones(i)) + ")", i, 0);
+        }
+    }
+
+    public String evaluarFormato() {
+        String formato = "0.";
+
+        for (int i = 0; i < Integer.parseInt(this.txtFIX.getText()); i++) {
+            formato = formato + "0";
+        }
+
+        return formato;
+    }
+
+    public void graficarIntegral() {
+        Plot2DPanel grafica2D;
         try {
             grafica.removeAll();
             grafica2D = new GraficaClass(Double.parseDouble(txtLimiteA.getText()), Double.parseDouble(txtLimiteB.getText()), txtIntegral.getText()).grafico();
@@ -908,10 +927,9 @@ public class SimpsomMenu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Ha ocurrido un error en la graficacion de la funcion.", "Error", 3);
             System.out.println(e);
         }
-    }//GEN-LAST:event_btnCalcularMousePressed
+    }
 
     private void btnLimpiarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMousePressed
-
         limpiarCampos();
     }//GEN-LAST:event_btnLimpiarMousePressed
 
@@ -939,31 +957,6 @@ public class SimpsomMenu extends javax.swing.JFrame {
                 new SimpsomMenu().setVisible(true);
             }
         });
-    }
-
-    public void rellenarTabulacion(SimpsomClass objSimpsom) {
-
-        DecimalFormat dfIteraciones = new DecimalFormat("#.##");
-        DecimalFormat dfEvaluaciones = new DecimalFormat(this.evaluarFormato());
-
-        DefaultTableModel model = (DefaultTableModel) tblTabulacion.getModel();
-        model.setRowCount(Integer.parseInt(this.txtN.getText()) + 1);
-        model.setColumnCount(2);
-
-        for (int i = 0; i < Integer.parseInt(this.txtN.getText()) + 1; i++) {
-            tblTabulacion.setValueAt(dfEvaluaciones.format(objSimpsom.getEvaluaciones(i)), i, 1);
-            tblTabulacion.setValueAt("F(" + dfIteraciones.format(objSimpsom.getIteraciones(i)) + ")", i, 0);
-        }
-    }
-
-    public String evaluarFormato() {
-        String formato = "0.";
-
-        for (int i = 0; i < Integer.parseInt(this.txtFIX.getText()); i++) {
-            formato = formato + "0";
-        }
-
-        return formato;
     }
 
     public void limpiarCampos() {

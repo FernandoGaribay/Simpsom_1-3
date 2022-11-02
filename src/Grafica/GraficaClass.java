@@ -29,7 +29,7 @@ public class GraficaClass {
 
     public Plot2DPanel grafico() {
         grafica2D.removeAllPlots();
-        grafica2D.addLinePlot(this.getIntegral(), new Color(255, 0, 0), x, yy);
+        grafica2D.addLinePlot(this.getIntegral(), new Color(0, 255, 0), x, yy);
         grafica2D.addBarPlot("Area bajo la curba", new Color(0, 0, 255), x, y);
         grafica2D.addLinePlot("Eje X", new Color(255, 0, 0), x, EjeX);
         return grafica2D;
@@ -92,4 +92,9 @@ public class GraficaClass {
         this.integral = integral;
     }
 
+    @Override
+    public String toString() {
+        return "GraficaClass{" + "grafica2D=" + grafica2D + ", x=" + x + ", y=" + y + ", yy=" + yy + ", EjeX=" + EjeX + ", integral=" + integral + '}';
+    }
+   
 }
