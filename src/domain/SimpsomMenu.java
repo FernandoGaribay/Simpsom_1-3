@@ -20,6 +20,10 @@ public class SimpsomMenu extends javax.swing.JFrame {
 
         this.setSize(615, 590);
         this.setLocation(getLocation().x + 300, getLocation().y);
+
+        Plot2DPanel grafica2D = new Plot2DPanel("SOUTH");
+        grafica2D.setBounds(1, 1, 600, 550);
+        grafica.add(grafica2D);
     }
 
     @SuppressWarnings("unchecked")
@@ -1063,7 +1067,7 @@ public class SimpsomMenu extends javax.swing.JFrame {
     }
 
     public void MousePressed(java.awt.event.MouseEvent evt) {
-        JPanel e = (JPanel) evt.getSource();       
+        JPanel e = (JPanel) evt.getSource();
         if (e == btn_0) {
             txtIntegral.setText(txtIntegral.getText() + "0");
         } else if (e == btn_1) {
