@@ -899,6 +899,7 @@ public class SimpsomMenu extends javax.swing.JFrame {
         }
 
         try {
+            grafica.removeAll();
             grafica2D = new GraficaClass(Double.parseDouble(txtLimiteA.getText()), Double.parseDouble(txtLimiteB.getText()), txtIntegral.getText()).grafico();
             grafica2D.setBounds(1, 1, 600, 550);
             grafica.add(grafica2D);
