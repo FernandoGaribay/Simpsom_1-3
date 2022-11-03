@@ -3,6 +3,7 @@ package domain;
 import Grafica.GraficaClass;
 import Simpsom.SimpsomClass;
 import java.awt.Color;
+import java.awt.Toolkit;
 import java.text.DecimalFormat;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
@@ -18,6 +19,8 @@ public class SimpsomMenu extends javax.swing.JFrame {
         MouseHoverButtons();
         MousePressedButtons();
         JTextFieldOnlyNumbers();
+
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/icono.png")));
 
         this.setSize(615, 590);
         this.setLocation(getLocation().x + 300, getLocation().y);
@@ -875,16 +878,17 @@ public class SimpsomMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimpiarMousePressed
 
     private void btnCalcularMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCalcularMousePressed
-        if (!(Integer.parseInt(txtLimiteA.getText()) < Integer.parseInt(txtLimiteB.getText()))) {
-            JOptionPane.showMessageDialog(this, "El Limite A debe der mayor que el Limite B.", "Atención", 2);
-            return;
-        }
-        if (!(txtLimiteA.getText().isEmpty()
+        if (txtLimiteA.getText().isEmpty()
                 || txtLimiteB.getText().isEmpty()
                 || txtIntegral.getText().isEmpty()
                 || txtN.getText().isEmpty()
-                || txtFIX.getText().isEmpty())) {
+                || txtFIX.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Verifique la entrada de datos.", "Atención", 2);
+            return;
+        }
+        if (!(Integer.parseInt(txtLimiteA.getText()) < Integer.parseInt(txtLimiteB.getText()))) {
+            JOptionPane.showMessageDialog(this, "El Limite B debe der mayor que el Limite A.", "Atención", 2);
+            return;
         }
         if (!(Integer.parseInt(txtN.getText()) % 2 == 0)) {
             JOptionPane.showMessageDialog(this, "El valor de N debe ser un número par.", "Atención", 2);
