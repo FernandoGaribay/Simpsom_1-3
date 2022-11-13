@@ -1130,9 +1130,8 @@ public class SimpsomMenu extends javax.swing.JFrame {
 
     private void KeyPressed(java.awt.event.KeyEvent evt) {
         int key = evt.getKeyChar();
-        boolean numeros = key >= 48 && key <= 57;
 
-        if (!numeros) {
+        if (!(key >= 48 && key <= 57) && !(key == 45)) {
             evt.consume();
         }
     }
