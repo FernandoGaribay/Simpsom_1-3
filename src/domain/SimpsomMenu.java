@@ -19,6 +19,8 @@ public class SimpsomMenu extends javax.swing.JFrame {
         this.MouseHoverButtons();
         this.MousePressedButtons();
         this.JTextFieldOnlyNumbers();
+        
+        this.limpiarTabla();
 
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/icono.png")));
 
@@ -141,7 +143,7 @@ public class SimpsomMenu extends javax.swing.JFrame {
         tblTabulacion.setShowHorizontalLines(true);
         scrollTabulacion.setViewportView(tblTabulacion);
 
-        pnlSimpsom.add(scrollTabulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(389, 190, 199, 345));
+        pnlSimpsom.add(scrollTabulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(389, 188, 199, 347));
 
         pnlConfiguracion.setBackground(new java.awt.Color(255, 255, 255));
         pnlConfiguracion.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true), "Configuración"));
@@ -152,7 +154,7 @@ public class SimpsomMenu extends javax.swing.JFrame {
         pnlConfiguracion.add(lblN, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 25, 70, 30));
 
         txtN.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        txtN.setText("4");
+        txtN.setText("50");
         pnlConfiguracion.add(txtN, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 25, 80, 30));
 
         txtFIX.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -187,7 +189,6 @@ public class SimpsomMenu extends javax.swing.JFrame {
         pnlIntegral.add(lblIntegral, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 25, 20, 70));
 
         txtIntegral.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        txtIntegral.setText("xsqrt(81-x^3)");
         txtIntegral.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         txtIntegral.setBorder(BorderFactory.createCompoundBorder(txtIntegral.getBorder(), BorderFactory.createEmptyBorder(0, 5, 0, 0)));
         pnlIntegral.add(txtIntegral, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 290, 40));
@@ -200,7 +201,6 @@ public class SimpsomMenu extends javax.swing.JFrame {
         txtResultado.setEditable(false);
         txtResultado.setBackground(new java.awt.Color(255, 255, 255));
         txtResultado.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        txtResultado.setText("0.14156482");
         txtResultado.setBorder(BorderFactory.createCompoundBorder(txtResultado.getBorder(), BorderFactory.createEmptyBorder(0, 5, 0, 0)));
         pnlResultado.add(txtResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 418, 40));
 
@@ -753,7 +753,7 @@ public class SimpsomMenu extends javax.swing.JFrame {
 
         TABCalculadoras.addTab("Operadores", pnlOperadores);
 
-        pnlSimpsom.add(TABCalculadoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 370, 295));
+        pnlSimpsom.add(TABCalculadoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 188, 370, 295));
 
         pnlBotones.setBackground(new java.awt.Color(255, 255, 255));
         java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 7, 0);
@@ -985,11 +985,19 @@ public class SimpsomMenu extends javax.swing.JFrame {
         this.txtN.setText("");
         this.txtResultado.setText("");
 
-        DefaultTableModel model = (DefaultTableModel) tblTabulacion.getModel();
-        model.setRowCount(0);
-        model.setColumnCount(0);
-
+        this.limpiarTabla();
         this.txtIntegral.requestFocus();
+    }
+    
+    public void limpiarTabla(){
+        DefaultTableModel model = (DefaultTableModel) tblTabulacion.getModel();
+        model.setRowCount(8);
+        model.setColumnCount(2);
+
+        for (int i = 0; i < 8; i++) {
+            tblTabulacion.setValueAt("0.000", i, 1);
+            tblTabulacion.setValueAt("F(" + i + ")", i, 0);
+        }
     }
 
     public JPanel[] Botones() {
