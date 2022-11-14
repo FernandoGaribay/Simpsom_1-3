@@ -883,26 +883,30 @@ public class SimpsomMenu extends javax.swing.JFrame {
                 || txtIntegral.getText().isEmpty()
                 || txtN.getText().isEmpty()
                 || txtFIX.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Verifique la entrada de datos.", "Atención", 2);
+            JOptionPane.showMessageDialog(this, "Algunos datos están vacios.", "Atención", 1);
             return;
         }
         if (!(Integer.parseInt(txtLimiteA.getText()) < Integer.parseInt(txtLimiteB.getText()))) {
-            JOptionPane.showMessageDialog(this, "El Limite B debe der mayor que el Limite A.", "Atención", 2);
+            JOptionPane.showMessageDialog(this, "El Limite B debe der mayor que el Limite A.", "Atención", 1);
             return;
         }
         if (!(Integer.parseInt(txtN.getText()) % 2 == 0)) {
-            JOptionPane.showMessageDialog(this, "El valor de N debe ser un número par.", "Atención", 2);
+            JOptionPane.showMessageDialog(this, "El valor de N debe ser un número par.", "Atención", 1);
             return;
         }
 
-        SimpsomClass objSimpsom = new SimpsomClass(
-                Integer.parseInt(this.txtLimiteA.getText()),
-                Integer.parseInt(this.txtLimiteB.getText()),
-                Integer.parseInt(this.txtN.getText()),
-                this.txtIntegral.getText());
-        this.calcularAproximacion(objSimpsom);
-        this.calcularTabulacion(objSimpsom);
-        this.graficarIntegral();
+        try {
+            SimpsomClass objSimpsom = new SimpsomClass(
+                    Integer.parseInt(this.txtLimiteA.getText()),
+                    Integer.parseInt(this.txtLimiteB.getText()),
+                    Integer.parseInt(this.txtN.getText()),
+                    this.txtIntegral.getText());
+            this.calcularAproximacion(objSimpsom);
+            this.calcularTabulacion(objSimpsom);
+            this.graficarIntegral();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Verifique la entrada de datos.", "Atención", 2);
+        }
     }//GEN-LAST:event_btnCalcularMousePressed
 
     public void calcularAproximacion(SimpsomClass objSimpsom) {
