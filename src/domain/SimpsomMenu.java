@@ -15,12 +15,12 @@ import org.math.plot.Plot2DPanel;
 public class SimpsomMenu extends javax.swing.JFrame {
 
     public SimpsomMenu() {
-        initComponents();
-        MouseHoverButtons();
-        MousePressedButtons();
-        JTextFieldOnlyNumbers();
+        this.initComponents();
+        this.MouseHoverButtons();
+        this.MousePressedButtons();
+        this.JTextFieldOnlyNumbers();
 
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/icono.png")));
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/icono.png")));
 
         this.setSize(615, 590);
         this.setLocation(getLocation().x + 300, getLocation().y);
@@ -886,7 +886,7 @@ public class SimpsomMenu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Algunos datos están vacios.", "Atención", 1);
             return;
         }
-        if (!(Integer.parseInt(txtLimiteA.getText()) < Integer.parseInt(txtLimiteB.getText()))) {
+        if (!(Double.parseDouble(txtLimiteA.getText()) < Double.parseDouble(txtLimiteB.getText()))) {
             JOptionPane.showMessageDialog(this, "El Limite B debe der mayor que el Limite A.", "Atención", 1);
             return;
         }
@@ -897,8 +897,8 @@ public class SimpsomMenu extends javax.swing.JFrame {
 
         try {
             SimpsomClass objSimpsom = new SimpsomClass(
-                    Integer.parseInt(this.txtLimiteA.getText()),
-                    Integer.parseInt(this.txtLimiteB.getText()),
+                    Double.parseDouble(this.txtLimiteA.getText()),
+                    Double.parseDouble(this.txtLimiteB.getText()),
                     Integer.parseInt(this.txtN.getText()),
                     this.txtIntegral.getText());
             this.calcularAproximacion(objSimpsom);
@@ -1135,7 +1135,7 @@ public class SimpsomMenu extends javax.swing.JFrame {
     private void KeyPressed(java.awt.event.KeyEvent evt) {
         int key = evt.getKeyChar();
 
-        if (!(key >= 48 && key <= 57) && !(key == 45)) {
+        if (!(key >= 48 && key <= 57) && !(key == 45) && !(key == 46)) {
             evt.consume();
         }
     }

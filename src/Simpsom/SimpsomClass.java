@@ -5,15 +5,15 @@ import net.objecthunter.exp4j.ExpressionBuilder;
 
 public class SimpsomClass {
 
-    private int a;
-    private int b;
+    private double a;
+    private double b;
     private int n;
     private double h;
     private String integral;
     private double[] iteraciones;
     private double[] evaluaciones;
 
-    public SimpsomClass(int a, int b, int n, String integral) {
+    public SimpsomClass(double a, double b, int n, String integral) {
         this.a = a;
         this.b = b;
         this.n = n;
@@ -70,7 +70,7 @@ public class SimpsomClass {
     }
 
     
-    public int getA() {
+    public double getA() {
         return a;
     }
 
@@ -78,7 +78,7 @@ public class SimpsomClass {
         this.a = a;
     }
 
-    public int getB() {
+    public double getB() {
         return b;
     }
 
