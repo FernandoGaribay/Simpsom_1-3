@@ -12,24 +12,21 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import org.math.plot.Plot2DPanel;
 
-public class SimpsomMenu extends javax.swing.JFrame {
+public final class SimpsomMenu extends javax.swing.JFrame {
 
     public SimpsomMenu() {
         this.initComponents();
         this.MouseHoverButtons();
         this.MousePressedButtons();
         this.JTextFieldOnlyNumbers();
-        
+
         this.limpiarTabla();
+        this.limpiarGrafica();
 
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/icono.png")));
 
         this.setSize(615, 590);
         this.setLocation(getLocation().x + 300, getLocation().y);
-
-        Plot2DPanel grafica2D = new Plot2DPanel("SOUTH");
-        grafica2D.setBounds(1, 1, 600, 550);
-        grafica.add(grafica2D);
     }
 
     @SuppressWarnings("unchecked")
@@ -901,17 +898,27 @@ public class SimpsomMenu extends javax.swing.JFrame {
                     Double.parseDouble(this.txtLimiteB.getText()),
                     Integer.parseInt(this.txtN.getText()),
                     this.txtIntegral.getText());
-            this.calcularAproximacion(objSimpsom);
-            this.calcularTabulacion(objSimpsom);
-            this.graficarIntegral();
+
+            String aproximacion = calcularAproximacion(objSimpsom);
+            if (!aproximacion.equals("NaN")) {
+                txtResultado.setText(aproximacion);
+                this.calcularTabulacion(objSimpsom);
+                this.graficarIntegral();
+            } else {
+                txtResultado.setText("Límites fuera de la función.");
+                this.limpiarTabla();
+                this.limpiarGrafica();
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Verifique la entrada de datos.", "Atención", 2);
         }
     }//GEN-LAST:event_btnCalcularMousePressed
 
-    public void calcularAproximacion(SimpsomClass objSimpsom) {
-        this.txtResultado.setText(String.valueOf(new DecimalFormat(this.evaluarFormato()).format(objSimpsom.calcularAproximacion())));
+    public String calcularAproximacion(SimpsomClass objSimpsom) {
+        DecimalFormat FIX = new DecimalFormat(this.evaluarFormato());
         this.btnLimpiar.requestFocus();
+
+        return FIX.format(objSimpsom.calcularAproximacion());
     }
 
     public void calcularTabulacion(SimpsomClass objSimpsom) {
@@ -932,7 +939,7 @@ public class SimpsomMenu extends javax.swing.JFrame {
         String formato = "0.";
 
         for (int i = 0; i < Integer.parseInt(this.txtFIX.getText()); i++) {
-            formato = formato + "0";
+            formato += "0";
         }
 
         return formato;
@@ -986,10 +993,11 @@ public class SimpsomMenu extends javax.swing.JFrame {
         this.txtResultado.setText("");
 
         this.limpiarTabla();
+        this.limpiarGrafica();
         this.txtIntegral.requestFocus();
     }
-    
-    public void limpiarTabla(){
+
+    public void limpiarTabla() {
         DefaultTableModel model = (DefaultTableModel) tblTabulacion.getModel();
         model.setRowCount(8);
         model.setColumnCount(2);
@@ -998,6 +1006,14 @@ public class SimpsomMenu extends javax.swing.JFrame {
             tblTabulacion.setValueAt("0.000", i, 1);
             tblTabulacion.setValueAt("F(" + i + ")", i, 0);
         }
+    }
+
+    public void limpiarGrafica() {
+        Plot2DPanel grafica2D = new Plot2DPanel("SOUTH");
+        grafica2D.setBounds(1, 1, 600, 550);
+        grafica.removeAll();
+        grafica.add(grafica2D);
+        grafica.updateUI();
     }
 
     public JPanel[] Botones() {

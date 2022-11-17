@@ -39,10 +39,10 @@ public class SimpsomClass {
     }
 
     private void evaluaciones() {
-        
+
         Expression expression;
         this.iteraciones();
-        
+
         for (int i = 0; i < this.getN() + 1; i++) {
             expression = new ExpressionBuilder(this.getIntegral())
                     .variables("x")
@@ -54,22 +54,21 @@ public class SimpsomClass {
     }
 
     public double calcularAproximacion() {
-        
+
         double resultado;
         this.evaluaciones();
-        
+
         resultado = evaluaciones[0] + evaluaciones[n];
         for (int i = 1; i < this.getN(); i++) {
             if (i % 2 != 0) {
-                resultado += 4*evaluaciones[i];
-            }else{
-                resultado += 2*evaluaciones[i];
+                resultado += 4 * evaluaciones[i];
+            } else {
+                resultado += 2 * evaluaciones[i];
             }
         }
-        return resultado = resultado*(this.getH()/3);
+        return resultado = resultado * (this.getH() / 3);
     }
 
-    
     public double getA() {
         return a;
     }
@@ -113,8 +112,8 @@ public class SimpsomClass {
     public double[] getIteraciones() {
         return iteraciones;
     }
-    
-    public double getIteraciones(int i){
+
+    public double getIteraciones(int i) {
         return iteraciones[i];
     }
 
@@ -126,10 +125,10 @@ public class SimpsomClass {
         return evaluaciones;
     }
 
-    public double getEvaluaciones(int i){
+    public double getEvaluaciones(int i) {
         return evaluaciones[i];
     }
-    
+
     public void setEvaluaciones(double[] evaluaciones) {
         this.evaluaciones = evaluaciones;
     }
@@ -148,7 +147,5 @@ public class SimpsomClass {
         sb.append('}');
         return sb.toString();
     }
-
-    
 
 }
