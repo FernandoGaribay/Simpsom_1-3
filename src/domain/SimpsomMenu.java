@@ -156,6 +156,11 @@ public final class SimpsomMenu extends javax.swing.JFrame {
 
         txtFIX.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txtFIX.setText("3");
+        txtFIX.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtFIXKeyTyped(evt);
+            }
+        });
         pnlConfiguracion.add(txtFIX, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 65, 80, 30));
 
         lblFIX.setFont(new java.awt.Font("Century Gothic", 0, 28)); // NOI18N
@@ -914,6 +919,14 @@ public final class SimpsomMenu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCalcularMousePressed
 
+    private void txtFIXKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFIXKeyTyped
+        int key = evt.getKeyChar();
+
+        if (!(key >= 48 && key <= 57)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtFIXKeyTyped
+
     public String calcularAproximacion(SimpsomClass objSimpsom) {
         DecimalFormat FIX = new DecimalFormat(this.evaluarFormato());
         this.btnLimpiar.requestFocus();
@@ -1140,8 +1153,7 @@ public final class SimpsomMenu extends javax.swing.JFrame {
         JTextField elementsArray[] = {
             txtLimiteA,
             txtLimiteB,
-            txtN,
-            txtFIX,};
+            txtN};
         return elementsArray;
     }
 
